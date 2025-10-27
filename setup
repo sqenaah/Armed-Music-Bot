@@ -1,5 +1,3 @@
-#!/bin/bash
-
 pprint (){
 	cred='\033[0;31m'
 	cgreen='\033[0;32m'
@@ -51,12 +49,11 @@ packages(){
 			pprint "SUCCESS.\n\n" "cgreen"
 		else
 			pprint "FAIL.\n\n" "cred"
-			pprint "You need to install ffmpeg manually in order to deploy AnonXMusic, exiting...\n" "cblue"
+			pprint "You need to install ffmpeg manually in order to deploy ArmedMusic, exiting...\n" "cblue"
 			exit 1
 		fi
 	fi
 
-	# Check ffmpeg version and warn user if necessary.
 	fv=$(grep -Po 'version (3.*?) ' <<< $(ffmpeg -version)) &&
 	pprint "Playing live streams not going to work since you have ffmpeg $fv, live streams are supported by version 4+.\n" "cblue"
 }
@@ -82,7 +79,7 @@ installation(){
 }
 
 clear
-pprint "Welcome to AnonXMusic Setup Installer\n\n"
+pprint "Welcome to ArmedMusic Setup Installer\n\n"
 pprint "If you see any error during Installation Process, Please refer to these files for logs: "
 pprint "\nFor node js errors , Checkout nodelog.txt"
 pprint "\nFor pypi packages errors , Checkout pypilog.txt"
@@ -94,7 +91,7 @@ update
 packages
 node
 installation
-pprint "\n\n\n\n\nAnonXMusic Installation Completed !" "cgreen"
+pprint "\n\n\n\n\nArmedMusic Installation Completed !" "cgreen"
 sleep 1
 clear
 
